@@ -6,7 +6,7 @@ public abstract class Character :ICharacter
     private List<IItem> items = new List<IItem>();
 
     private int health = 100;
-    private Character(string name)
+    public Character(string name)
     {
         this.Name = name;
     }
@@ -43,13 +43,13 @@ public abstract class Character :ICharacter
         }
     }
     public void ReceiveAttack(int attackValue)
+    {
+        int damage = attackValue - this.DefenseValue;
+        if (damage > 0)
         {
-            if (this.DefenseValue < power)
-            {
-                this.Health -= power - this.DefenseValue;
-            }
-
+            this.Health -= damage;
         }
+    }
     public void Cure()
     {
         this.Health = 100;
