@@ -42,12 +42,14 @@ public abstract class Character :ICharacter
             this.health = value < 0 ? 0 : value;
         }
     }
-    public void ReceiveAttack(int attackValue)
+    public void ReceiveAttack(Character attacker)
     {
-        int damage = attackValue - this.DefenseValue;
-        if (damage > 0)
+
+        int power = attacker.AttackValue;
+
+        if (this.DefenseValue < power)
         {
-            this.Health -= damage;
+            this.Health -= power - this.DefenseValue;
         }
     }
     public void Cure()
