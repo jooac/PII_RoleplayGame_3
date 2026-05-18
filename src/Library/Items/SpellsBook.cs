@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 
 namespace Ucu.Poo.RoleplayGame;
-
+/// <summary>
+/// Representa un libro de hechizos que puede contener múltiples hechizos y sumar sus valores de ataque y defensa.
+/// </summary>
 public class SpellsBook: IMagicalAttackItem, IMagicalDefenseItem
 {
     private List<ISpell> spells = new List<ISpell>();
